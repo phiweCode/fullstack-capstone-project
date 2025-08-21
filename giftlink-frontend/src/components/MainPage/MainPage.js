@@ -6,7 +6,7 @@ function MainPage() {
     const [gifts, setGifts] = useState([]);
     const navigate = useNavigate();
 
-    useEffect(async () => {
+    useEffect(() => {
         // Task 1: Write async fetch operation 
         // Write your code below this line  
         // fetch all gifts
@@ -19,7 +19,9 @@ function MainPage() {
                     throw new Error(`HTTP error; ${response.status}`)
                 }
                 const data = await response.json();
-                setGifts(data);
+                Array.isArray(data) ? setGifts(data) : setGifts(data.gifts || []);
+
+                console.log(data)
             } catch (error) {
                 console.log('Fetch error: ' + error.message);
             }
