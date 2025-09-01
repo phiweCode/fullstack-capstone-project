@@ -14,32 +14,31 @@ function DetailsPage() {
         const authenticationToken = sessionStorage.getItem('auth-token');
         if (!authenticationToken) {
 			// Task 1: Check for authentication and redirect
-            navigate('/app/login')
+            navigate('/app/login');
             return
-        }
+        };
 
         // get the gift to be rendered on the details page
         const fetchGift = async () => {
             try {
 				// Task 2: Fetch gift details
-                const response = await fetch(`${urlConfig.backendUrl}/api/gifts/${productId}`)
+                const response = await fetch(`${urlConfig.backendUrl}/api/gifts/${productId}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
-                }
+                };
                 const data = await response.json();
-                console.log("Details data",data)
                 setGift(data);
             } catch (error) {
                 setError(error.message);
             } finally {
                 setLoading(false);
-            }
+            };
         };
 
         fetchGift();
 
 		// Task 3: Scroll to top on component mount
-		window.scrollTo(0,0)
+		window.scrollTo(0,0);
 
     }, [productId]);
 

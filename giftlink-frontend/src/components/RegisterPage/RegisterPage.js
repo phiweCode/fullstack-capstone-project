@@ -33,7 +33,7 @@ function RegisterPage() {
                     email: email,
                     password: password
                 })
-            })
+            });
 
             const json = await response.json();
 
@@ -50,10 +50,7 @@ function RegisterPage() {
 
             if (json.error) {
                 setShowerr(json.error);
-            } 
-
-              console.log('json data', json);
-            console.log('er', json.error);
+            }; 
 
         } catch (e) {
             console.log("Error fetching details: " + e.message);

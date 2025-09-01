@@ -1,4 +1,4 @@
-
+/*jshint esversion: 8 */
 const pino = require('pino');
 
 let logger;
@@ -14,6 +14,6 @@ if (process.env.NODE_ENV !== 'production') {
 } else {
     // production
     logger = pino();
-}
+};
 
 module.exports = logger;

@@ -12,11 +12,11 @@ function MainPage() {
         // fetch all gifts
         const fetchGifts = async () => {
             try {
-                let url = `${urlConfig.backendUrl}/api/gifts`
+                let url = `${urlConfig.backendUrl}/api/gifts`;
                 const response = await fetch(url);
                 if (!response.ok) {
                     //something went wrong
-                    throw new Error(`HTTP error; ${response.status}`)
+                    throw new Error(`HTTP error; ${response.status}`);
                 }
                 const data = await response.json();
                 Array.isArray(data) ? setGifts(data) : setGifts(data.gifts || []);

@@ -18,7 +18,7 @@ function LoginPage() {
         if (sessionStorage.getItem('auth-token')) {
             navigate('/app')
         }
-    }, [navigate])
+    }, [navigate]);
 
 
     // insert code here to create handleLogin function and include console.log 
@@ -38,7 +38,7 @@ function LoginPage() {
                     email: email,
                     password: password,
                 })
-            })
+            });
 
             const json = await response.json();
             if (json.authtoken) {
@@ -47,8 +47,8 @@ function LoginPage() {
                 sessionStorage.setItem('name', json.userName);
                 sessionStorage.setItem('email', json.userEmail);
 
-                setIsLoggedIn(true)
-                navigate('/app')
+                setIsLoggedIn(true);
+                navigate('/app');
             } else {
                 document.getElementById("email").value = "";
                 document.getElementById("password").value = "";
@@ -57,7 +57,7 @@ function LoginPage() {
                 setTimeout(() => {
                     setIncorrect("");
                 }, 2000);
-            }
+            };
 
 
 

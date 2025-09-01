@@ -74,7 +74,7 @@ router.post('/login', async (req, res) => {
             if (!result) {
                 logger.error('Passwords do not match');
                 return res.status(404).json({ error: 'Wrong pasword' });
-            }
+            };
             //continue other tasks
             // Task 5: Fetch user details from database 
             const userName = theUser.firstName;
@@ -85,7 +85,7 @@ router.post('/login', async (req, res) => {
                     id: theUser._id.toString(),
                 },
             };
-            const authtoken = jwt.sign(payload, JWT_SECRET)
+            const authtoken = jwt.sign(payload, JWT_SECRET);
 
             // Task 7: Send appropriate message if user not found 
 
