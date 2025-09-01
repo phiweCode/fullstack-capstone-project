@@ -15,6 +15,7 @@ function DetailsPage() {
         if (!authenticationToken) {
 			// Task 1: Check for authentication and redirect
             navigate('/app/login')
+            return
         }
 
         // get the gift to be rendered on the details page
@@ -26,6 +27,7 @@ function DetailsPage() {
                     throw new Error('Network response was not ok');
                 }
                 const data = await response.json();
+                console.log("Details data",data)
                 setGift(data);
             } catch (error) {
                 setError(error.message);
@@ -86,14 +88,13 @@ return (
                 <div className="card-body">
                     <div className="image-placeholder-large">
                         {gift.image ? (
-			// Task 5: Display gift image
-			/*insert code here*/ 
+	
             <img src={gift.image} alt={gift.name} className="product-image-large" />
                         ) : (
                             <div className="no-image-available-large">No Image Available</div>
                         )}
                     </div>
-                    // Task 6: Display gift details
+                   
                     	<p><strong>Category:</strong> 
 				{/* insert code here  */} 
                 {gift.category}
@@ -118,7 +119,7 @@ return (
             </div>
             <div className="comments-section mt-4">
                 <h3 className="mb-3">Comments</h3>
-				// Task 7: Render comments section by using the map function to go through all the comments
+				
 				{comments.map((comment,index) => (
                     <div key={index} className="card mb-3">
                         <div className="card-body">
