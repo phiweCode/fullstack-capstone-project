@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
         // Task 4: return the gifts using the res.json method
         res.json(gifts);
     } catch (e) {
-        logger.console.error('oops something went wrong', e)
+        logger.console.error('oops something went wrong', e);
         next(e);
     }
 });
@@ -42,7 +42,7 @@ router.get('/:id', async (req, res) => {
 
         if (!gift) {
             return res.status(404).send('Gift not found');
-        };
+        }
 
         res.json(gift);
     } catch (e) {
@@ -63,7 +63,7 @@ router.post('/', async (req, res, next) => {
         res.status(201).json(gift.ops[0]);
     } catch (e) {
         next(e);
-    };
+    }
 });
 
 module.exports = router;
