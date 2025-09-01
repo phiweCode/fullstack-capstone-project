@@ -27,6 +27,7 @@ router.post('/register', async (req, res) => {
         //Task 3: Check for existing email
         // {{insert code here}} 
         const existingEmail = await collection.findOne({ email: req.body.email });
+        
 
         const salt = await bcryptjs.genSalt(10);
         const hash = await bcryptjs.hash(req.body.password, salt);
